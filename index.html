@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Country Search</title>
+    <link rel="icon" type="image/ico" href="https://previews.123rf.com/images/prawny/prawny1102/prawny110200018/8912838-colourful-globe-illustration-made-up-of-flags-from-all-over-the-world-and-incorporating-a-world-map-.jpg">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: Arial;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+        }
+
+        form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+        }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+        form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        table {
+            width: 100%;
+            margin: 40px 0;
+            border-collapse: collapse;
+            background-color: aquamarine;
+        }
+table,th,td {
+            border: 1px;
+        }
+ table th,table td {
+            padding: 5px;
+            text-align: left;
+        }
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 36px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.searchTerm:focus{
+  color: #00B4CC;
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #00B4CC;
+  background: #00B4CC;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+#navbtn{
+    position: relative;
+    left:200%;
+}
+#name{
+    position: relative;;
+    left: 200%;
+}
+#title{
+    font-family:'Lucida Sans'; 
+    color:#fff;
+}
+#navbar{
+    height: 60%;
+    width: 100%;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 4%, rgba(9,9,121,1) 24%, rgba(0,212,255,1) 100%);
+}
+thead{
+    background: rgb(35,20,172);
+    background: linear-gradient(90deg, rgba(35,20,172,1) 0%, rgba(10,91,237,1) 40%, rgba(119,0,255,1) 100%);
+}
+    </style>
+</head>
+
+<body>
+        <nav class="navbar navbar-expand-sm " id="navbar">
+                <h1 id="title">Search Country</h1>
+                <form class="form-inline">
+                  <input class="form-control mr-sm-2" type="search" placeholder="Search" id="name">
+                  <button type="button" class="btn btn-success" type="submit" id="navbtn"><i class="fa fa-search"></i>&nbsp;&nbsp;Search</button>
+                </form>
+              </nav>
+              <br>
+    <div class="container">
+            <!-- <input type="search" placeholder="Search Country.." name="search2" id="name" class="form-control">
+            <button type="button" class="btn btn-primary"><i class="fa fa-search"></i></button><br><br> -->
+    
+    <span id="result"></span>
+    <input class="form-control-sm" type="text" placeholder="Results" id="counter">
+    <table>
+        <thead>
+            <tr style="font-size:30px; color: #fffF">
+                <th>Name</th>
+                <th>Flag</th>
+                <th>Code</th>
+                <th>Population</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <center><button class="btn btn-primary" id='spinner' style="display:none">
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+          </button></center>
+    <center><img id= "error"style="height:50%;display:none" src="error_bg.jpg"></center>
+</div>
+<!-- style="display:none" -->
+    <!-- </form> -->
+    <script>
+
+        function addRow(name, flag, code, population) {
+            table = "<tr><td>" + name + "</td>" +
+                "<td id='flag'><img src=" + flag + " style = 'height:40px;width:40px;'></td>" +
+                "<td>" + code + "</td>" +
+                "<td>" + population + "</td>" +
+                "</tr>"
+
+            $('tbody').append(table);
+        }
+        
+    </script>
+    <script src="country.js"></script>
+
+</body>
+
+</html>
